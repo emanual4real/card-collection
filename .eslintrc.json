@@ -26,7 +26,8 @@
         "import/extensions": ["error", "never", { "svg": "always" }],
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "prettier/prettier": "error",
-        "react/function-component-definition": [2, {"namedComponents": "arrow-function", "unnamedComponents": "arrow-function"}]
+        "react/function-component-definition": [2, {"namedComponents": "arrow-function", "unnamedComponents": "arrow-function"}],
+        "react/jsx-props-no-spreading": "off"
     },
     "settings": {
         "import/resolver": {

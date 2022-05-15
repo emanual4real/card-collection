@@ -1,0 +1,101 @@
+.baseTradingCard {
+    position: relative;
+    border-radius: 5px;
+}
+
+.noImageTradingCard {
+    border: '1px solid grey';
+}
+
+.smallTradingCard {
+    width: 192px;
+    height: 267px;
+}
+
+.largeTradingCard {
+width: 320px;
+height: 445px;
+}
+
+
+@keyframes lift {
+    0%   {left:0px; top:0px;}
+    25%  {left:20px; top:-20px; box-shadow: 5px 10px 15px gray;}
+    50%  {left:20px; top:-20px; box-shadow: 5px 10px 15px gray;}
+    75%  {left:20px; top:-20px; box-shadow: 5px 10px 15px gray;}
+    100%  {left:0px; top:0px;}
+  }
+
+@keyframes rotate {
+    0% {transform: rotate3d(0);}
+    50% {transform: rotate3d(0, 1, 0, 90deg)}
+    51% {transform: rotate3d(0, 1, 0, -90deg)}
+    100% {transform: rotate3d(0, 1, 0, 0deg);}
+}
+
+.flipping-card {
+    animation-name: lift, rotate, quickFlip;
+    animation-delay: 0ms, 750ms;
+    animation-duration: 3000ms, 1500ms;
+    animation-timing-function:
+    ease-in, ease-out;
+  animation-iteration-count:
+    1, 1;
+}
+
+@keyframes falling {
+    0% {
+      transform: translate3d(0, -400px, 0);
+    }
+    100% {
+      transform:
+        translate3d(0, 40%, 0)
+        rotateX(30deg)
+        rotateY(0deg)
+        rotateZ(60deg);
+    }
+  }
+  
+  @keyframes laydown {
+    0% {
+      transform:
+        translate3d(0, 40%, 0)
+        rotateX(30deg)
+        rotateY(0deg)
+        rotateZ(60deg);
+    }
+    100% {
+      transform:
+        translate3d(0, 40%, 0)
+        rotateX(70deg)
+        rotateY(0deg)
+        rotateZ(80deg);
+    }
+  }
+  
+  #falling-card-parent {
+    height: 150px;
+    width: 100px;
+    margin: auto;
+    perspective: 1000px;
+  }
+  
+  #falling-card {
+    height: 150px;
+    width: 100px;
+    background-color: black;
+    margin: auto;
+    transform:
+      translate3d(0, 40%, 0)
+      rotateX(70deg)
+      rotateY(0deg)
+      rotateZ(80deg);
+    animation-name:
+      laydown, falling;
+    animation-duration:
+      2000ms, 1000ms;
+    animation-timing-function:
+      ease-in, ease-out;
+    animation-iteration-count:
+      1, 1;
+  }
