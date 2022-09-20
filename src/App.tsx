@@ -1,10 +1,11 @@
 import React from 'react';
-import TradingCard from './components/TradingCard';
+import TradingCard from './Cards/TradingCard';
 import './App.css';
+import { spellfireCard } from './Cards/__fixtures__/cards.fixtures';
 
 const App = () => (
   <div className="App">
-    <TradingCard title="Ace" />
+    <TradingCard card={spellfireCard} size="small" />
   </div>
 );
 

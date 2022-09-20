@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TradingCard from '../TradingCard';
-import cardFront from '../__fixtures__/gib-ekim.jpg';
-import cardBack from '../__fixtures__/spellfire-back.jpg';
+import { spellfireCard } from '../__fixtures__/cards.fixtures';
 
 export default {
-  title: 'TradingCard',
+  title: 'Card/TradingCard',
   component: TradingCard,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -28,20 +27,17 @@ const Template: ComponentStory<typeof TradingCard> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  title: 'Ace',
-  images: { front: cardFront, back: cardBack },
+  card: spellfireCard,
 };
 
 export const Large = Template.bind({});
 
 Large.args = {
-  title: 'King',
+  card: spellfireCard,
   size: 'large',
-  images: { front: cardFront, back: cardBack },
 };
 
 export const NoImage = Template.bind({});
 NoImage.args = {
-  title: 'Jack',
-  images: { front: undefined, back: undefined },
+  card: { ...spellfireCard, front: undefined, back: undefined },
 };

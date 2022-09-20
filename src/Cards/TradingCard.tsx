@@ -1,33 +1,16 @@
 import React, { useState } from 'react';
+import Hover from './Hover';
 import './TradingCard.css';
-
-const TradingCardBaseStyle: React.CSSProperties = {
-  position: 'relative',
-  borderRadius: '5px ',
-};
-
-const TradingCardSmallStyle: React.CSSProperties = {
-  ...TradingCardBaseStyle,
-  width: `${64 * 3}px`,
-  height: `${89 * 3}px`,
-};
-
-const TradingCardLargeStyle: React.CSSProperties = {
-  ...TradingCardBaseStyle,
-  width: `${64 * 5}px`,
-  height: `${89 * 5}px`,
-};
+import { Card } from './types';
 
 const TradingCard = ({
-  title,
+  card,
   size,
-  images,
 }: {
-  title: string;
+  card: Card;
   size?: 'small' | 'large';
-  images: { front?: string; back?: string };
 }) => {
-  const { front, back } = images;
+  const { front, back, features } = card;
 
   const [isFront, setIsFront] = useState<boolean>(true);
   const [className, setClassName] = useState<string>();
@@ -72,6 +55,7 @@ const TradingCard = ({
           alt={isFront ? 'front of card' : 'back of card'}
           style={{ width: '100%', height: '100%' }}
         />
+        {features?.map((row) => (isFront ? <Hover {...row} /> : null))}
       </button>
     </div>
   );
